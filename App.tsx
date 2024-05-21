@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+// Telas da aplicação
+import Login from './src/components/LoginScreen';
+import CadastroUsuario from './src/components/UserRegister';
+import Dashboard from './src/components/DashboardScreen';
+import Fazenda from './src/components/FarmRegister';
+import PerfilUsuario from './src/components/UserProfile';
+
+const Stack = createNativeStackNavigator();
+
+const App: React.FC = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="Fazenda" component={Fazenda} />
+        <Stack.Screen name="PerfilUsuario" component={PerfilUsuario} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
+
