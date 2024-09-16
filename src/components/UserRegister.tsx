@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, Button, View } from 'react-native';
+import { StyleSheet, Text, TextInput, Button, View, TouchableOpacity } from 'react-native';
 
 interface Usuario {
   nome: string;
@@ -7,7 +7,7 @@ interface Usuario {
   senha: string;
 }
 
-const CadastroUsuario: React.FC = () => {
+const CadastroUsuario: React.FC = ({ navigation }) => {
   const [usuario, setUsuario] = useState<Usuario>({
     nome: '',
     email: '',
@@ -45,6 +45,11 @@ const CadastroUsuario: React.FC = () => {
       />
 
       <Button title="Cadastrar" onPress={handleSubmit} />
+
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <Text>Já tem uma conta? Faça login</Text>
+      </TouchableOpacity>
+
     </View>
   );
 };
@@ -71,3 +76,5 @@ const styles = StyleSheet.create({
 });
 
 export default CadastroUsuario;
+
+

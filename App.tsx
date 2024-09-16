@@ -14,12 +14,12 @@ const Stack = createNativeStackNavigator();
 const App: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen name="Fazenda" component={Fazenda} />
-        <Stack.Screen name="PerfilUsuario" component={PerfilUsuario} />
+      <Stack.Navigator initialRouteName='Login'>
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="CadastroUsuario" component={CadastroUsuario} options={{ headerShown: false }} />
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerShown: false }} />
+        <Stack.Screen name="Fazenda" component={Fazenda} options={{ headerShown: false }} />
+        <Stack.Screen name="PerfilUsuario" component={PerfilUsuario}  options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
