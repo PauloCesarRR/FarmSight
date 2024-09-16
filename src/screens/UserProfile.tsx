@@ -7,11 +7,11 @@ interface Usuario {
   email: string;
 }
 
-const PerfilUsuario: React.FC = () => {
+const Profile: React.FC = () => {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
 
   useEffect(() => {
-    // Buscar dados do usuário logado da API
+    //TODO: Buscar dados do usuário logado da API
   }, []);
 
   if (!usuario) {
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PerfilUsuario;
+export default Profile;

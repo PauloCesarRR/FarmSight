@@ -12,7 +12,7 @@ interface Fazenda {
 
 
 
-const Fazenda: React.FC = () => {
+const Farms: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
 
@@ -96,4 +96,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Fazenda;
+export default Farms;
