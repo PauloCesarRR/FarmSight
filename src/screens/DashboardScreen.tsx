@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 interface DadoAgro {
   id: number;
@@ -33,6 +34,7 @@ const Dashboard: React.FC = () => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />
+      <Footer/>
     </View>
   );
 };
