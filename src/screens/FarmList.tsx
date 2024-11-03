@@ -19,17 +19,7 @@ const FarmsList = () => {
       await fetch(`http://localhost:8080/farms/${id}`, {
         method: 'DELETE',
       });
-    
-
-      <Button title='Criar' onPress={handleSubmit(fazenda)}/>
-
-    </View>  
-
-  );
-};
-
-
-const styles = StyleSheet.create({  setFazendas(fazendas.filter((fazenda) => fazenda.id !== id));
+      setFazendas(fazendas.filter((fazenda) => fazenda.id !== id));
       alert('Fazenda deletada com sucesso!');
     } catch (error) {
       console.error('Erro ao deletar fazenda:', error);
