@@ -12,8 +12,26 @@ interface Fazenda {
 
 
 
+
+
 const Farms: React.FC = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const handleSubmit = async (data: Fazenda) => {
+    try {
+      await fetch(`http://localhost:8080/farms`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error('Erro ao criar fazenda:', error);
+      alert('Erro ao criar fazenda. Tente novamente.');
+    }
+  };
+
+  const { register, formState: { errors } } = useForm();
 
 
   const [fazenda, setFazenda] = useState<Fazenda>({
@@ -21,10 +39,7 @@ const Farms: React.FC = () => {
     localizacao: '',
     area: 0,
     cultura: '',
-  });
-
- 
-  
+  });  
 
   return (
     <View style={styles.container}>
@@ -62,6 +77,8 @@ const Farms: React.FC = () => {
         value={fazenda.cultura}
         onChangeText={(cultura) => setFazenda({ ...fazenda, cultura })}
       />
+
+      <Button title='Criar' onPress={handleSubmit(fazenda)}/>
 
     </View>  
 
